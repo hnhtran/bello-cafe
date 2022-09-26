@@ -1,3 +1,5 @@
+import './AuthPage.css'
+
 const AuthPage = () => {
     return (
         <>
@@ -5,3 +7,5 @@ const AuthPage = () => {
         </>
     )
 }
+
+export default AuthPage
