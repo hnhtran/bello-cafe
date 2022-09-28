@@ -1,6 +1,6 @@
 import './OrderHistoryPage.css'
 
-const AuthPage = () => {
+const OrderHistoryPage = () => {
     return (
         <>
             <h1>Order History Page</h1>
