@@ -2,15 +2,12 @@ import { Component } from "react";
 import './SignUpForm.css';
 
 class SignUpForm extends Component {
-    constructor() {
-        super();
-        this.state = {
+    state = {
             name: '',
             email: '',
             password: '',
             passwordConf: '',
             error: ''
-        }
     }
 
     handleChange = (e) => {
