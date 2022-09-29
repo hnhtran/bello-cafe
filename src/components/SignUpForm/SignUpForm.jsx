@@ -16,6 +16,12 @@ class SignUpForm extends Component {
             error: ''
         })
     }
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        alert(JSON.stringify(this.state))
+    }
+
     render() {
         const disable = this.state.password !== this.state.passwordConf;
         return (
