@@ -2,6 +2,15 @@ import { Component } from "react";
 import './SignUpForm.css';
 
 class SignUpForm extends Component {
+    constructor() {
+        this.state = {
+            name: '',
+            email: '',
+            password: '',
+            passwordConf: '',
+            error: ''
+        }
+    }
     render() {
         return (
             <div>
