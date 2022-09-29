@@ -19,7 +19,7 @@ class SignUpForm extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        alert(JSON.stringify(this.state))
+        alert(JSON.stringify(this.state, null, 2))
     }
 
     render() {
@@ -40,7 +40,7 @@ class SignUpForm extends Component {
                         <button type='submit' disabled={disable}>Sign Up</button>    
                     </form>
                 </div>
-                <p className="error-message">&nbsp{this.state.error}</p>
+                <p className="error-message">&nbsp;{this.state.error}</p>
             </div>
         )
     }
