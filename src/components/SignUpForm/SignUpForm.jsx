@@ -3,6 +3,7 @@ import './SignUpForm.css';
 
 class SignUpForm extends Component {
     constructor() {
+        super();
         this.state = {
             name: '',
             email: '',
