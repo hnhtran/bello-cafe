@@ -1,5 +1,6 @@
 import { Component } from "react";
 import './SignUpForm.css';
+import { signUp } from '../../utilities/users-service';
 
 class SignUpForm extends Component {
     state = {
