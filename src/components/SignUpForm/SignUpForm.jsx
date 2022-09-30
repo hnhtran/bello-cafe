@@ -24,7 +24,7 @@ class SignUpForm extends Component {
             const formData = {...this.state}
             delete formData.error;
             delete formData.passwordConf;
-            const user = await SignUpForm(formData)
+            const user = await signUp(formData)
             console.log(user)
         }
         catch {

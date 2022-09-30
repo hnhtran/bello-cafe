@@ -5,7 +5,7 @@ module.exports = {
 function create(req, res) {
     res.json({
         user: {
-            username: req.body.username,
+            name: req.body.name,
             email: req.body.email,
         }
     })
