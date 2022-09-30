@@ -19,7 +19,16 @@ class SignUpForm extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        alert(JSON.stringify(this.state, null, 2))
+        try {
+            const formData = {...this.state}
+            delete formData.error;
+            delete formData.passwordConf;
+            const user = await SignUpForm(formData)
+            console.log(user)
+        }
+        catch {
+            this.setState({error: 'Sign Up Failed - Try Again'});
+        }
     }
 
     render() {
