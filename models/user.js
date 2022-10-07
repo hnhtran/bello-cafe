@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const userSchema = new Schame ({
+const SALT_ROUNDS = 6
+const userSchema = new Schema ({
     name: {
         type: String,
         required: true,
@@ -30,4 +31,12 @@ const userSchema = new Schame ({
     }
 )
 
-module.exports = mongoose.model('User', 'userSchema')s
+userSchema.pre('save', async function (next) {
+    // this is the user doc
+    if (!this.isModified('password')) return next();
+    // update password with the computed hashed
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
+    return next();
+})
+
+module.exports = mongoose.model('User', 'userSchema')
