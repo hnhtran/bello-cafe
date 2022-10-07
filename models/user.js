@@ -18,6 +18,8 @@ const userSchema = new Schame ({
         minlength: 3,
         trim: true,
     }
-})
+},
+    {timestamps: true,}
+)
 
 module.exports = mongoose.model('User', 'userSchema')s
