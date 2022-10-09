@@ -25,7 +25,6 @@ class SignUpForm extends Component {
             delete formData.error;
             delete formData.passwordConf;
             const user = await signUp(formData)
-            console.log(user)
         }
         catch {
             this.setState({error: 'Sign Up Failed - Try Again'});
