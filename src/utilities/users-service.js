@@ -8,6 +8,10 @@ export async function signUp(userData) {
     // console.log(token)
 }
 
+export function logOut() {
+    localStorage.removeItem('token');
+}
+
 export function getToken() {
     const token = localStorage.getItem('token')
     // console.log(token.split('.')[1])

@@ -1,11 +1,11 @@
 import './AuthPage.css'
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 
-const AuthPage = () => {
+const AuthPage = ({user, setUser}) => {
     return (
         <>
             <h1>Auth Page</h1>
-            <SignUpForm />
+            <SignUpForm user={user} setUser={setUser}/>
         </>
     )
 }
