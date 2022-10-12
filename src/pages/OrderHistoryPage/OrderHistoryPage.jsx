@@ -1,8 +1,10 @@
 import './OrderHistoryPage.css'
+import { checkToken } from '../../utilities/users-service'
 
 const OrderHistoryPage = () => {
     const handleCheckToken = async () => {
-        alert('clicked')
+        const expDate = await checkToken()
+        console.log(expDate)
     }
 
     return (

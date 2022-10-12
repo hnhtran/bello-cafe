@@ -35,3 +35,7 @@ export function getUser() {
     return token ? JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).user : null
     // return token ? JSON.parse(atob(token.split('.')[1])).user : null
 }
+
+export function checkToken() {
+    alert('checkToken button clicked')
+}
