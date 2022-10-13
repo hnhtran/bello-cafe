@@ -37,5 +37,6 @@ export function getUser() {
 }
 
 export function checkToken() {
-    alert('checkToken button clicked')
+    return usersAPI.checkToken()
+    .then(dateStr => new Date(dateStr))
 }
