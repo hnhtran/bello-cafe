@@ -1,3 +1,5 @@
+import { getToken } from './users-service';
+
 const BASE_URL = '/api/users';
 
 export function signUp(userData) {
