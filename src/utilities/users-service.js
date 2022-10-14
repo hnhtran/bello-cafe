@@ -5,7 +5,7 @@ require('buffer');
 export async function signUp(userData) {
     const token = await usersAPI.signUp(userData);
     localStorage.setItem('token', token)
-    // console.log(token)
+    return getUser()
 }
 
 export function logOut() {
@@ -15,6 +15,7 @@ export function logOut() {
 export async function login(credentials) {
     const token = await usersAPI.login(credentials);
     localStorage.setItem('token', token);
+    return getUser();
 }
 
 export function getToken() {
