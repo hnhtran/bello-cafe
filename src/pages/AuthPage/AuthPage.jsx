@@ -8,7 +8,10 @@ const AuthPage = ({user, setUser}) => {
     const [showSignUp, setShowSignUp] = useState(true)
     return (
         <main className='AuthPage'>
-            <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+            <div>
+                <Logo />
+                <h3 onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</h3>
+            </div>
             {showSignUp ? <SignUpForm setUser={setUser}/> : <LoginForm setUser={setUser}/>}
         </main>
     )
