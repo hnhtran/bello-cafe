@@ -43,4 +43,13 @@ orderSchema.virtual('orderId').get(function() {
     return this.id.slice(-6).toUpperCase()
 })
 
+orderSchema.statics.getCart = function(userId) {
+    return this.findOneAndUpdate(
+        { user: userId, isPaid: false },
+        { user: userId },
+        { upsert: true, new: true}
+        )
+    .populate('lineItems.item')
+}
+
 module.exports = mongoose.model('Order', orderSchema)
