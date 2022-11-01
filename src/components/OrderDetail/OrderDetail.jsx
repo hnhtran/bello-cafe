@@ -1,7 +1,7 @@
 import './OrderDetail.css';
 import LineItem from '../LineItem/LineItem';
 
-export default function OrderDetail({ order, handleChangeQty }) {
+export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
     if (!order) return null
 
     const lineItems = order.lineItems.map(item =>
@@ -28,7 +28,7 @@ export default function OrderDetail({ order, handleChangeQty }) {
                         {order.isPaid ? 
                         <span className="right">TOTAL&nbsp;&nbsp;</span>
                         : 
-                        <button className="btn-sm" onClick={() => alert('clicked')} disabled={!lineItems.length}>CHECKOUT</button>
+                        <button className="btn-sm" onClick={handleCheckout} disabled={!lineItems.length}>CHECKOUT</button>
                         }
                         <span>{order.totalQty}</span>
                         <span className="right">${order.orderTotal.toFixed(2)}</span>

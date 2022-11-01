@@ -2,7 +2,7 @@ import './NewOrderPage.css'
 import { useState, useEffect, useRef } from 'react'
 import * as itemsAPI from '../../utilities/items-api'
 import * as ordersAPI from '../../utilities/orders-api'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '../../components/Logo/Logo'
 import MenuList from '../../components/MenuList/MenuList'
 import OrderDetail from '../../components/OrderDetail/OrderDetail'
@@ -14,6 +14,7 @@ const NewOrderPage = ({user, setUser}) => {
     const [activeCat, setActiveCat] = useState('')
     const [cart, setCart] = useState(null)
     const categoriesRef = useRef([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function getItems() {
@@ -44,6 +45,11 @@ const NewOrderPage = ({user, setUser}) => {
         setCart(updatedCart)
     }
 
+    async function handleCheckout() {
+        await ordersAPI.checkout()
+        navigate('/orders')
+    }
+
     return (
         <main className='NewOrderPage'>
             <aside>
@@ -60,7 +66,7 @@ const NewOrderPage = ({user, setUser}) => {
                 menuItems={menuItems.filter(item => item.category.name === activeCat)}
                 handleAddToCart={handleAddToCart}
                 />
-            <OrderDetail order={cart} handleChangeQty={handleChangeQty}/>
+            <OrderDetail order={cart} handleChangeQty={handleChangeQty} handleCheckout={handleCheckout}/>
         </main>
     )
 }
