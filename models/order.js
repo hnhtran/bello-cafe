@@ -52,4 +52,17 @@ orderSchema.statics.getCart = function(userId) {
     .populate('lineItems.item')
 }
 
+orderSchema.methods.addItemToCart = async function(itemId) {
+    const cart = this
+    const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId))
+    if (lineItem) {
+        lineItem.qty++
+    }
+    else {
+        const item = await mongoose.model('Item').findById(itemId)
+        cart.lineItems.push({ item })
+    }
+    return cart.save()
+}
+
 module.exports = mongoose.model('Order', orderSchema)

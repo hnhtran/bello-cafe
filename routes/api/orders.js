@@ -3,8 +3,8 @@ const router = express.Router();
 const ordersCtrl = require('../../controllers/api/orders');
 
 router.get('/cart', ordersCtrl.cart);
-router.post('/cart', ordersCtrl.addToCart);
-router.put('/cart', ordersCtrl.setItemQtyInCart);
-router.post('/checkout', ordersCtrl.checkout);
+router.post('/cart/items/:id', ordersCtrl.addToCart);
+router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
+router.post('/cart/checkout', ordersCtrl.checkout);
 
 module.exports = router
