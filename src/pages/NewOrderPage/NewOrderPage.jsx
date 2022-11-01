@@ -48,7 +48,7 @@ const NewOrderPage = () => {
             <MenuList
                 menuItems={menuItems.filter(item => item.category.name === activeCat)}
                 />
-            <OrderDetail />
+            <OrderDetail order={cart}/>
         </main>
     )
 }
