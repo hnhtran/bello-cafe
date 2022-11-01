@@ -36,7 +36,11 @@ const NewOrderPage = ({user, setUser}) => {
 
     async function handleAddToCart(itemId) {
         const updatedCart = await ordersAPI.addItemToCart(itemId)
-        console.log(updatedCart)
+        setCart(updatedCart)
+    }
+
+    async function handleChangeQty(itemId, newQty) {
+        const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
         setCart(updatedCart)
     }
 
@@ -56,7 +60,7 @@ const NewOrderPage = ({user, setUser}) => {
                 menuItems={menuItems.filter(item => item.category.name === activeCat)}
                 handleAddToCart={handleAddToCart}
                 />
-            <OrderDetail order={cart}/>
+            <OrderDetail order={cart} handleChangeQty={handleChangeQty}/>
         </main>
     )
 }

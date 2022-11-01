@@ -1,11 +1,11 @@
 import './OrderDetail.css';
 import LineItem from '../LineItem/LineItem';
 
-export default function OrderDetail({ order }) {
+export default function OrderDetail({ order, handleChangeQty }) {
     if (!order) return null
 
     const lineItems = order.lineItems.map(item =>
-        <LineItem key={item.id} lineItem={item} isPaid={order.isPaid}/>
+        <LineItem key={item.id} lineItem={item} isPaid={order.isPaid} handleChangeQty={handleChangeQty}/>
         )
 
     return (

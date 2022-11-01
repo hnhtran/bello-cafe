@@ -17,5 +17,10 @@ async function addToCart(req, res) {
     await cart.addItemToCart(req.params.id);
     res.json(cart);
 }
-async function setItemQtyInCart(req, res) {}
+async function setItemQtyInCart(req, res) {
+    const cart = await Order.getCart(req.user._id);
+    console.log(req.body)
+    await cart.setItemQty(req.body.itemId, req.body.newQty);
+    res.json(cart);
+}
 async function checkout(req, res) {}
