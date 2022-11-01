@@ -8,8 +8,13 @@ const lineItemsSchema = new Schema({
 },
 {
     timestamps: true,
+    toJSON: { virtuals: true }
 }
 )
+
+lineItemsSchema.virtual('extPrice').get(function() {
+    return this.qty * this.item.price
+})
 
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
