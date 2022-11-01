@@ -1,6 +1,7 @@
 import './NewOrderPage.css'
 import { useState, useEffect, useRef } from 'react'
 import * as itemsAPI from '../../utilities/items-api'
+import * as ordersAPI from '../../utilities/orders-api'
 import { Link } from 'react-router-dom'
 import Logo from '../../components/Logo/Logo'
 import MenuList from '../../components/MenuList/MenuList'
