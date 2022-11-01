@@ -11,6 +11,7 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut'
 const NewOrderPage = () => {
     const [menuItems, setMenuItems] = useState([])
     const [activeCat, setActiveCat] = useState('')
+    const [cart, setCart] = useState(null)
     const categoriesRef = useRef([])
 
     useEffect(() => {
