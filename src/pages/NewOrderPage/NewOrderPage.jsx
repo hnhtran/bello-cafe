@@ -21,10 +21,16 @@ const NewOrderPage = () => {
                 const cat = item.category.name
                 return cats.includes(cat) ? cats : [...cats, cat]
             }, [])
-            setActiveCat(categoriesRef.current[1])
+            setActiveCat(items[0].category.name)
             setMenuItems(items)
         }
         getItems()
+
+        async function getCart() {
+            const cart = await ordersAPI.getCart()
+            setCart(cart)
+        }
+        getCart()
     }, [])
     return (
         <main className='NewOrderPage'>
