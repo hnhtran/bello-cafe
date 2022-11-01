@@ -22,7 +22,7 @@ const NewOrderPage = ({user, setUser}) => {
                 const cat = item.category.name
                 return cats.includes(cat) ? cats : [...cats, cat]
             }, [])
-            setActiveCat(items[0].category.name)
+            setActiveCat(categoriesRef.current[1])
             setMenuItems(items)
         }
         getItems()
@@ -33,6 +33,11 @@ const NewOrderPage = ({user, setUser}) => {
         }
         getCart()
     }, [])
+
+    async function handleAddToCart(itemId) {
+        alert(`add item: ${itemId}`)
+    }
+
     return (
         <main className='NewOrderPage'>
             <aside>
