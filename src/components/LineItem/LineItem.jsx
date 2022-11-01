@@ -13,7 +13,7 @@ export default function LineItem({ lineItem, isPaid }) {
                 <span>{lineItem.qty}</span>
                 {!isPaid && <button className='btn-xs' onClick={() => alert('clicked')}>+</button>}
             </div>
-            <div className="ext-price">${lineItem.extPrice.toFixed(2s)}</div>
+            <div className="ext-price">${lineItem.extPrice.toFixed(2)}</div>
             </div>
     )
 }

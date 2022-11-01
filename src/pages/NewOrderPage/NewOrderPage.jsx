@@ -9,7 +9,7 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail'
 import CategoryList from '../../components/CategoryList/CategoryList'
 import UserLogOut from '../../components/UserLogOut/UserLogOut'
 
-const NewOrderPage = () => {
+const NewOrderPage = ({user, setUser}) => {
     const [menuItems, setMenuItems] = useState([])
     const [activeCat, setActiveCat] = useState('')
     const [cart, setCart] = useState(null)
